@@ -22,3 +22,15 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
+(setq ring-bell-function 'ignore)
+(require 'package)
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+(package-initialize)
+(package-refresh-contents)
+(add-hook 'c-mode-common-hook
+          (lambda () (define-key c-mode-base-map (kbd "C-c C-l") 'compile)))
+
+
+(put 'upcase-region 'disabled nil)
+(load "wide-column.el")
